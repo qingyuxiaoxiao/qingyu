@@ -21,7 +21,8 @@ class Rightvalidate
         $gid = $admin->gid;		// 当前用户的角色gid
         $group = DB::table('admin_group')->where('gid',$gid)->item();
         if(!$group){
-            return response('该角色不存在',200);
+            return $this->_norights($request,'该角色不存在');
+
         }
         $rights = [];
         if($group['rights']){
@@ -37,15 +38,22 @@ class Rightvalidate
 
         $cur_menu = DB::table('admin_menu')->where('controller',$res[0])->where('action',$res[1])->item();
         if(!$cur_menu){
-            return response('该功能不存在',200);
+            return $this->_norights($request,'该功能不存在');
         }
         if($cur_menu['status']==1){
-            return response('该功能已被禁用',200);
+            return $this->_norights($request,'该功能已被禁用');
         }
         // 判断该mid是否在$rights数组中
         if(!in_array($cur_menu['mid'], $rights)){
-            return response('权限不足',200);
+            return $this->_norights($request,'权限不足');
         }
         return $next($request);
+    }
+    private function _norights($request,$msg)
+    {
+        if ($request->ajax()){
+            return response(json_encode(array('code'=>1,'msg'=>$msg)),200);
+        }
+        return response($msg,200);
     }
 }

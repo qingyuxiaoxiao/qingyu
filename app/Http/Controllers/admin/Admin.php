@@ -12,14 +12,8 @@ class Admin extends Controller
     public function index()
     {
         $data['admin'] = DB::table('admin')->lists();
-        foreach ($data['admin'] as $key =>$val)
-        {
-            $group = DB::table('admin_group')->where('gid',$val['gid'])->first();
-            $data['admin'][$key]['group_title'] = $group->title;
-        }
-
+        $data['db_groups'] = DB::table('admin_group')->select('gid','title')->cates('gid');
         return view('admin.admin.index',$data);
-
     }
     //渲染添加管理员
     public function add()
@@ -66,8 +60,6 @@ class Admin extends Controller
     public function edit($id)
     {
         $data = DB::table('admin')->where('id',$id)->first();
-//        echo '<pre>';
-//        print_r($data);
         //渲染角色
         $groups = DB::table('admin_group')->select('gid','title')->lists();
 //        echo '<pre>';
