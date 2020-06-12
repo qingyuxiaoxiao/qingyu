@@ -3,31 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>添加菜单</title>
+    <title>编辑菜单</title>
     <link rel="stylesheet" href="/static/plugins/layui/css/layui.css">
     <script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
 </head>
 <body style="padding: 15px">
 <form class="layui-form" action="">
     @csrf
-    <input type="hidden" name="pid" value="{{ $pid }}">
+    <input type="hidden" name="mid" value="{{ $menu['mid'] }}">
+    <input type="hidden" name="pid" value="{{ $menu['pid'] }}">
     <div class="layui-form-item">
         <label class="layui-form-label">菜单名称</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="title">
+            <input type="text" class="layui-input" name="title" value="{{ $menu['title'] }}">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">控制器</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="controller">
+            <input type="text" class="layui-input" name="controller" value="{{ $menu['controller'] }}">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">方法</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="action">
+            <input type="text" class="layui-input" name="action" value="{{ $menu['action'] }}">
         </div>
     </div>
     {{--<div class="layui-form-item">
@@ -39,25 +40,25 @@
     <div class="layui-form-item">
         <label class="layui-form-label">排序</label>
         <div class="layui-input-block">
-            <input type="number" class="layui-input" name="ord">
+            <input type="number" class="layui-input" name="ord" value="{{ $menu['ord'] }}">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">是否隐藏</label>
         <div class="layui-input-block">
-            <input type="checkbox" name="ishidden" value="1" title="隐藏" lay-skin="primary">
+            <input type="checkbox" name="ishidden" value="1" title="隐藏" lay-skin="primary" {{ $menu['ishidden']?'checked':'' }}>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">状态</label>
         <div class="layui-input-block">
-            <input type="checkbox" lay-filter="test1" name="status" lay-text="启用|禁用" lay-skin="switch" checked>
+            <input type="checkbox" lay-filter="test1" name="status" lay-text="启用|禁用" lay-skin="switch" {{ $menu['status']?'':'checked' }}>
         </div>
     </div>
     <div class="layui-form-item">
 
         <div class="layui-input-block">
-            <button class="layui-btn" type="button" onclick="save()">添加</button>
+            <button class="layui-btn" type="button" onclick="save()">保存</button>
         </div>
     </div>
 </form>

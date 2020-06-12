@@ -9,21 +9,34 @@ use Illuminate\Support\Facades\DB;
 class menus extends Controller
 {
     //菜单列表
-    public function index()
+    public function index(Request $request)
     {
-        $data['menus'] = DB::table('admin_menu')->where('pid',0)->lists();
+        $mid = (int)$request->mid;
+        $data['menus'] = DB::table('admin_menu')->where('pid',$mid)->lists();
+
+        $data['pmenu'] = DB::table('admin_menu')->where('mid',$mid)->item();
+        $data['mid']   = $mid;
         return view('admin.menus.index',$data);
     }
     //添加菜单
-    public function add()
+    public function add(Request $request)
     {
-        $data['dj'] = DB::table('admin_menu')->where('pid',0)->lists();
+
+        $data['pid'] = (int)$request->pid;
         return view('admin.menus.add',$data);
+    }
+    //修改菜单
+    public function edit(Request $request)
+    {
+        $mid = (int)$request->mid;
+        $data['menu'] = DB::table('admin_menu')->where('mid',$mid)->item();
+        return view('admin.menus.edit',$data);
     }
 
     public function save(Request $request)
     {
-        $data['pid'] = 0;
+        $mid = (int)$request->mid;
+        $data['pid'] = (int)$request->pid;
         $data['title'] = trim($request->title);
         $data['ord']   = (int)$request->ord;
         $data['controller'] = trim($request->controller);
@@ -34,7 +47,12 @@ class menus extends Controller
         if ($data['title'] == ''){
             exit(json_encode(array('code'=>1,'msg'=>'菜单名称不能为空')));
         }
-        DB::table('admin_menu')->insert($data);
+        if ($mid == 0){
+            DB::table('admin_menu')->insert($data);
+        }else{
+            DB::table('admin_menu')->where('mid',$mid)->update($data);
+        }
+
         exit(json_encode(array('code'=>0,'msg'=>'保存成功')));
 
     }

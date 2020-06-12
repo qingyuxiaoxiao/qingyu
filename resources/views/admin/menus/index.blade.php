@@ -8,9 +8,16 @@
     <script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
 </head>
 <body style="padding: 15px">
-<div>
-    <button class="layui-btn" onclick="add()">添加</button>
-</div>
+
+    <div style="float: left;margin-right: 10px;margin-bottom: 10px">
+        <input type="hidden" name="pid" value="{{ $pmenu?$pmenu['mid']:'0' }}">
+        <button class="layui-btn" onclick="add()">添加</button>
+    </div>
+
+    @if(isset($pmenu['mid']) && $pmenu['mid']>0)
+    <button class="layui-btn layui-btn-primary" onclick="backup({{ $pmenu['pid'] }})">返回【{{ $pmenu['title'] }}】</button>
+    @endif
+
 
 <table class="layui-table">
     @csrf
@@ -37,7 +44,7 @@
         <td>{{ $menu['ishidden']?'隐藏':'显示' }}</td>
         <td>{{ $menu['status']?'禁用':'启用' }}</td>
         <td>
-            <button class="layui-btn layui-btn-xs layui-btn-primary" >下级菜单</button>
+            <button class="layui-btn layui-btn-xs layui-btn-primary"  onclick="childs({{ $menu['mid'] }})">下级菜单</button>
             <button class="layui-btn layui-btn-xs" onclick="edit({{ $menu['mid'] }})">编辑</button>
             <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="del({{ $menu['mid'] }})">删除</button>
         </td>
@@ -55,27 +62,39 @@
     });
     //添加管理员
     function add() {
+        var pid = $('input[name="pid"]').val();
         layer.open({
             type: 2,
             title: '添加菜单',
             shadeClose: true,
             shade: 0.8,
             area: ['800px', '600px'],
-            content: '/admin/menus/add'
+            content: '/admin/menus/add?pid='+pid
         });
     }
-    //编辑管理员
-    function edit(aid) {
+
+    //子菜单
+    function childs(mid) {
+        window.location.href="?mid="+mid;
+
+    }
+    //返回上一级
+    function backup(ppid) {
+        window.location.href="?mid="+ppid;
+
+    }
+    //编辑菜单
+    function edit(mid) {
         layer.open({
             type: 2,
-            title: '编辑管理员'+aid,
+            title: '编辑管理员'+mid,
             shadeClose: true,
             shade: 0.8,
-            area: ['600px', '300px'],
-            content: '/admin/admin/edit?aid='+aid
+            area: ['800px', '600px'],
+            content: '/admin/menus/edit?mid='+mid
         });
     }
-    //删除管理员
+    //删除菜单
     function del(mid) {
         layer.confirm('确定要删除吗？', {
             icon:3,

@@ -37,7 +37,10 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     //菜单路由组
     Route::get('/admin/menus/index','Menus@index');
     Route::get('/admin/menus/add','Menus@add');
+    Route::get('/admin/menus/edit','Menus@edit');
     Route::post('/admin/menus/save','Menus@save');
     Route::post('/admin/menus/del','Menus@del');
+    //角色路由组
+    Route::get('/admin/groups/index','Groups@index');
 });
 
