@@ -28,15 +28,16 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     //后台首页
     Route::get('/admin/home/index','Home@index');
     Route::get('/admin/home/welcome','Home@welcome');
-    //管理员列表
+    //管理员路由组
     Route::get('/admin/admin/index','Admin@index');
-    //管理员添加
     Route::get('/admin/admin/add','Admin@add');
-    //执行管理添加
     Route::post('/admin/admin/save','Admin@save');
-    //删除管理员
+    Route::get('/admin/admin/edit','Admin@edit');
     Route::post('/admin/admin/del','Admin@del');
-    Route::get('/admin/admin/edit/{id}','Admin@edit');
-    Route::post('/admin/admin/update','Admin@update');
+    //菜单路由组
+    Route::get('/admin/menus/index','Menus@index');
+    Route::get('/admin/menus/add','Menus@add');
+    Route::post('/admin/menus/save','Menus@save');
+    Route::post('/admin/menus/del','Menus@del');
 });
 

@@ -3,59 +3,60 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>编辑管理员</title>
+    <title>添加菜单</title>
     <link rel="stylesheet" href="/static/plugins/layui/css/layui.css">
     <script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
 </head>
 <body style="padding: 15px">
 <form class="layui-form" action="">
     @csrf
-    <input type="hidden" name="aid" value="{{ $item['id'] }}">
     <div class="layui-form-item">
-        <label class="layui-form-label">用户名</label>
+        <label class="layui-form-label">菜单名称</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="username" value="{{ $item['username'] }}">
+            <input type="text" class="layui-input" name="title">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">控制器</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="controller">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">角色</label>
+        <label class="layui-form-label">方法</label>
         <div class="layui-input-block">
-            <select name="gid" id="">
-                <option></option>
-                @foreach($groups as $group)
-                    <option value="{{ $group['gid'] }}" {{ $item['gid'] == $group['gid'] ? 'selected' : ''}}>{{ $group['title'] }}</option>
-                @endforeach
-            </select>
+            <input type="text" class="layui-input" name="action">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
+        <label class="layui-form-label">图标</label>
         <div class="layui-input-block">
-            <input type="password" class="layui-input" name="pwd">
+            <input type="text" class="layui-input" name="icon">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">真实姓名</label>
+        <label class="layui-form-label">排序</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="real_name" value="{{ $item['real_name']  }}">
+            <input type="text" class="layui-input" name="org">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">手机</label>
+        <label class="layui-form-label">是否隐藏</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="phone" value="{{ $item['phone']  }}">
+            <input type="checkbox" name="ishidden" title="隐藏" lay-skin="primary">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">状态</label>
         <div class="layui-input-block">
-            <input type="checkbox" lay-filter="test1" name="status" lay-text="启用|禁用" lay-skin="switch"  {{ $item['status'] ==0?'checked':'' }}>
+            <input type="checkbox" lay-filter="test1" name="status" lay-text="启用|禁用" lay-skin="switch" checked>
         </div>
     </div>
     <div class="layui-form-item">
 
         <div class="layui-input-block">
-            <button class="layui-btn" type="button" onclick="save()">修改</button>
+            <button class="layui-btn" type="button" onclick="save()">添加</button>
         </div>
     </div>
 </form>
@@ -69,7 +70,6 @@
 
 
         form.on('switch(test1)', function(data){
-
 
             console.log(data.elem.checked); //开关是否开启，true或者false
             //询问框判断是否开启
@@ -96,26 +96,21 @@
 
     });
     function save() {
-        var username = $.trim($('input[name="username"]').val());
-        var gid      = parseInt($('select[name="gid"]').val());
-
-        if (username==''){
-            return layui.alert('请输入用户名',{icon:2});
+        var title      = $.trim($('input[name="title"]').val());
+        var controller = $.trim($('input[name="controller"]').val());
+        var action     = $.trim($('input[name="action"]').val());
+        var icon     = $.trim($('input[name="icon"]').val());
+        if (title==''){
+            return layer.alert('请填写菜单名称',{icon:2});
         }
-        if (isNaN(gid)){
-            return  layui.alert('请选择角色',{icon:2});
-        }
-
-        $.post('/admin/admin/save',$('form').serialize(),function (res) {
+        $.post('/admin/menus/save',$('form').serialize(),function (res) {
             if (res.code>0){
                 return layer.alert(res.msg,{icon:2});
             }
             layer.msg(res.msg);
             setTimeout(function () {
                 parent.window.location.reload();
-
             },1000);
-
         },'json');
 
     }
