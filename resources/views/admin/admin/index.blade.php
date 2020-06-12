@@ -30,7 +30,7 @@
     <tr>
         <td>{{ $admin['id'] }}</td>
         <td>{{ $admin['username'] }}</td>
-        <td>{{ $admin['group_title'] }}</td>
+        <td>{{ $db_groups[$admin['gid']]['title'] }}</td>
         <td>{{ $admin['real_name'] }}</td>
         <td>{{ $admin['lastlogin']?date('Y-m-d H:i:s',$admin['lastlogin']):'' }}</td>
         <td>{{ $admin['status']==0?'启用':'禁用' }}</td>

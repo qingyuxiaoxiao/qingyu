@@ -11,6 +11,17 @@
 <form class="layui-form" action="">
     @csrf
     <div class="layui-form-item">
+        <label class="layui-form-label">上级菜单</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+                <option value="0">顶级菜单</option>
+                @foreach($dj as $v)
+                <option value="{{ $v['pid'] }}">{{ $v['title'] }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">菜单名称</label>
         <div class="layui-input-block">
             <input type="text" class="layui-input" name="title">
@@ -29,12 +40,12 @@
             <input type="text" class="layui-input" name="action">
         </div>
     </div>
-    <div class="layui-form-item">
+    {{--<div class="layui-form-item">
         <label class="layui-form-label">图标</label>
         <div class="layui-input-block">
             <input type="text" class="layui-input" name="icon">
         </div>
-    </div>
+    </div>--}}
     <div class="layui-form-item">
         <label class="layui-form-label">排序</label>
         <div class="layui-input-block">
@@ -44,7 +55,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">是否隐藏</label>
         <div class="layui-input-block">
-            <input type="checkbox" name="ishidden" title="隐藏" lay-skin="primary">
+            <input type="checkbox" name="ishidden" value="1" title="隐藏" lay-skin="primary">
         </div>
     </div>
     <div class="layui-form-item">
@@ -97,9 +108,7 @@
     });
     function save() {
         var title      = $.trim($('input[name="title"]').val());
-        var controller = $.trim($('input[name="controller"]').val());
-        var action     = $.trim($('input[name="action"]').val());
-        var icon     = $.trim($('input[name="icon"]').val());
+
         if (title==''){
             return layer.alert('请填写菜单名称',{icon:2});
         }

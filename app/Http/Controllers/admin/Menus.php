@@ -17,22 +17,25 @@ class menus extends Controller
     //添加菜单
     public function add()
     {
-        return view('admin.menus.add');
+        $data['dj'] = DB::table('admin_menu')->where('pid',0)->lists();
+        return view('admin.menus.add',$data);
     }
+
     public function save(Request $request)
     {
+        $data['pid'] = 0;
         $data['title'] = trim($request->title);
         $data['ord']   = (int)$request->ord;
         $data['controller'] = trim($request->controller);
         $data['action'] = trim($request->action);
-        $data['icon'] = trim($request->icon);
-        $data['ishidden'] = (int)$request->ishidden;
-        $data['status'] = (int)$request->status;
+
+        $data['ishidden'] = $request->ishidden== 'on'?0:1;
+        $data['status'] = $request->status== 'on'?0:1;
         if ($data['title'] == ''){
-            exit(json_decode(array('code'=>1,'msg'=>'菜单名称不能为空')));
+            exit(json_encode(array('code'=>1,'msg'=>'菜单名称不能为空')));
         }
         DB::table('admin_menu')->insert($data);
-        exit(json_decode(array('code'=>0,'msg'=>'保存成功')));
+        exit(json_encode(array('code'=>0,'msg'=>'保存成功')));
 
     }
     //菜单删除

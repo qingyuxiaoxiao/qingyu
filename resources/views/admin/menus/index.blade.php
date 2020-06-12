@@ -60,7 +60,7 @@
             title: '添加菜单',
             shadeClose: true,
             shade: 0.8,
-            area: ['600px', '300px'],
+            area: ['800px', '600px'],
             content: '/admin/menus/add'
         });
     }
