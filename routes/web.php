@@ -42,5 +42,9 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     Route::post('/admin/menus/del','Menus@del');
     //角色路由组
     Route::get('/admin/groups/index','Groups@index');
+    Route::get('/admin/groups/add','Groups@add');
+    Route::get('/admin/groups/edit','Groups@edit');
+    Route::post('/admin/groups/save','Groups@save');
+    Route::post('/admin/groups/del','Groups@del');
 });
 

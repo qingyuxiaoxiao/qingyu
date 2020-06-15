@@ -37,42 +37,49 @@
     </tbody>
 </table>
 <script>
-    layui.use('layer', function(){
+    layui.use(['layer','form'], function(){
         layer = layui.layer;
+        form = layui.layer;
         // var element = layui.element;
         $ = layui.jquery;
 
     });
-    //添加管理员
+    //添加角色
     function add() {
         layer.open({
             type: 2,
-            title: '添加管理员',
+            title: '添加角色',
             shadeClose: true,
             shade: 0.8,
-            area: ['600px', '300px'],
-            content: '/admin/admin/add'
+            area: ['600px', '600px'],
+            content: '/admin/groups/add',
+            btn:['保存'],
+            yes:function (index, layero) {
+                var body = layer.getChildFrame('body', index);
+                var iframewin = window[layero.find('iframe')[0]['name']];
+                iframewin.save();
+            }
         });
     }
-    //编辑管理员
-    function edit(aid) {
+    //编辑角色
+    function edit(gid) {
         layer.open({
             type: 2,
-            title: '编辑管理员'+aid,
+            title: '编辑角色'+gid,
             shadeClose: true,
             shade: 0.8,
-            area: ['600px', '300px'],
-            content: '/admin/admin/edit?aid='+aid
+            area: ['800px', '600px'],
+            content: '/admin/groups/edit?gid='+gid
         });
     }
     //删除管理员
-    function del(aid) {
+    function del(gid) {
         layer.confirm('确定要删除吗？', {
             icon:3,
             btn: ['删除','取消'] //按钮
         }, function(){
             var _token = $('input[name="_token"]').val();
-            $.post('/admin/admin/del',{aid:aid,_token:_token},function (res) {
+            $.post('/admin/groups/del',{gid:gid,_token:_token},function (res) {
                 if (res.code>0){
                     return layer.alert(res.msg,{icon:2});
                 }

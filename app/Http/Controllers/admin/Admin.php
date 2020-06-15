@@ -39,12 +39,13 @@ class Admin extends Controller
         $data['gid']       = (int)$request->gid;
         $data['real_name'] = trim($request->real_name);
         $data['phone'] = trim($request->phone);
+        //获取前端发送来的on 及OFF 设置别名
         $data['status']    = $request->status == 'on'?0:1;
-
+        //判断ID等于0 或 用户名==0这做提示
         if ($aid === 0 && $username == ''){
             exit(json_encode(array('code'=>1,'msg'=>'用户名不能为空')));
         }
-
+        //判断角色不能为空
         if ($data['gid'] == ''){
             exit(json_encode(array('code'=>1,'msg'=>'角色不能为空')));
         }
@@ -59,10 +60,13 @@ class Admin extends Controller
                 exit(json_encode(array('code'=>1,'msg'=>'密码不能为空')));
             }
             $data['username']  = $username;
+            //添加时间
             $data['add_time']  = time();
+            //通过哈希加密
             $data['password'] = password_hash($pwd,PASSWORD_DEFAULT);
             DB::table('admin')->insert($data);
         }else{
+            //判断用户是否输入密码
             if ($pwd){
                 $data['password'] = password_hash($pwd,PASSWORD_DEFAULT);
             }
