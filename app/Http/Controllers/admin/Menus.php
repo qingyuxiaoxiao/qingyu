@@ -42,7 +42,7 @@ class menus extends Controller
         $data['controller'] = trim($request->controller);
         $data['action'] = trim($request->action);
 
-        $data['ishidden'] = $request->ishidden== 'on'?0:1;
+        $data['ishidden'] = (int)$request->ishidden;
         $data['status'] = $request->status== 'on'?0:1;
         if ($data['title'] == ''){
             exit(json_encode(array('code'=>1,'msg'=>'菜单名称不能为空')));

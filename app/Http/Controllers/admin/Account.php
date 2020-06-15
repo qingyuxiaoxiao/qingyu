@@ -41,12 +41,14 @@ class Account extends Controller
             exit(json_encode(array('code'=>1,'msg'=>'登录失败')));
         }
 
-
-
         // 最后登录时间
-
         DB::table('admin')->where('username',$username)->update(array('lastlogin'=>time()));
         return json_encode(array('code'=>0,'msg'=>'登录成功'));
+    }
+    public function logout()
+    {
+        Auth::login();
+        return json_encode(array('code'=>0,'msg'=>'退出登录成功'));
     }
     public function captcha(){
         VeriCode::create();

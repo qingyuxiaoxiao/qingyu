@@ -10,10 +10,11 @@
 <body style="padding: 15px">
 <form class="layui-form" action="">
     @csrf
+    <input type="hidden" name="gid" value="{{ $cur_group['gid'] }}">
     <div class="layui-form-item">
         <label class="layui-form-label">角色名称</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input" name="title">
+            <input type="text" class="layui-input" name="title" value="{{ $cur_group['title'] }}">
         </div>
     </div>
     <div class="layui-form-item">
@@ -22,18 +23,17 @@
             <div>
                 <input type="checkbox" lay-skin="primary" lay-filter="chk-all" title="全选">
             </div>
-
             @foreach($menu_list as $menu)
-                <input type="checkbox" name="menus[{{ $menu['mid'] }}]" value="{{ $menu['mid'] }}" title="{{ $menu['title'] }}" lay-skin="primary">
+                <div name="div-menu">
+                    <input type="checkbox" name="menus[{{ $menu['mid'] }}]" value="{{ $menu['mid'] }}" title=" {{ $menu['title'] }}" lay-skin="primary" {{ in_array($menu['mid'],$cur_group['rights'])?'checked':'' }}>
+                    <div style="margin-left: 25px">
+                        @foreach($menu['children'] as $ch)
+                            <input type="checkbox" name="menus[{{ $ch['mid'] }}]" value="{{ $ch['mid'] }}" title="{{ $ch['title'] }}" lay-skin="primary" {{ in_array($ch['mid'],$cur_group['rights'])?'checked':'' }}>
+                        @endforeach
+                    </div>
+                </div>
+                <hr>
             @endforeach
-
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-
-        <div class="layui-input-block">
-            <button class="layui-btn" type="button" onclick="save()">添加</button>
         </div>
     </div>
 </form>
@@ -45,14 +45,12 @@
         $ = layui.jquery;
         form.on('checkbox(chk-all)',function(data){
             if(data.elem.checked){
-                $(data.elem).parent('div').siblings('input[type="checkbox"]').prop('checked',true);
+                $('div[name="div-menu"] input[type="checkbox"]').prop('checked',true);
             }else{
-                $(data.elem).parent('div').siblings('input[type="checkbox"]').prop('checked',false);
+                $('div[name="div-menu"] input[type="checkbox"]').prop('checked',false);
             }
             form.render();
         });
-
-
     });
     function save() {
         var title = $.trim($('input[name="title"]').val());
@@ -69,15 +67,7 @@
 
             },1000);
         },'json');
-
-
-
-
-
     }
-
-
-
 </script>
 </body>
 </html>

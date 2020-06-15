@@ -17,12 +17,12 @@ class Rightvalidate
      */
     public function handle($request, Closure $next)
     {
+        //获取session中的数据
         $admin = Auth::user();
         $gid = $admin->gid;		// 当前用户的角色gid
         $group = DB::table('admin_group')->where('gid',$gid)->item();
         if(!$group){
             return $this->_norights($request,'该角色不存在');
-
         }
         $rights = [];
         if($group['rights']){
@@ -47,6 +47,9 @@ class Rightvalidate
         if(!in_array($cur_menu['mid'], $rights)){
             return $this->_norights($request,'权限不足');
         }
+        $admin->rights = $rights;
+        $admin->right_title = $group['title'];
+        $request->admin = $admin;
         return $next($request);
     }
     private function _norights($request,$msg)

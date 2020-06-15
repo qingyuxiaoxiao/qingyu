@@ -28,7 +28,7 @@
         <td>{{ $group['gid'] }}</td>
         <td>{{ $group['title'] }}</td>
         <td>
-            <button class="layui-btn layui-btn-xs" onclick="edit({{ $group['gid'] }})">编辑</button>
+            <button class="layui-btn layui-btn-xs" onclick="add({{ $group['gid'] }})">编辑</button>
             <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="del({{ $group['gid'] }})">删除</button>
         </td>
     </tr>
@@ -45,14 +45,14 @@
 
     });
     //添加角色
-    function add() {
+    function add(gid) {
         layer.open({
             type: 2,
-            title: '添加角色',
+            title: gid>0?'修改角色':'添加角色',
             shadeClose: true,
             shade: 0.8,
             area: ['600px', '600px'],
-            content: '/admin/groups/add',
+            content: '/admin/groups/add?gid='+gid,
             btn:['保存'],
             yes:function (index, layero) {
                 var body = layer.getChildFrame('body', index);
@@ -61,17 +61,7 @@
             }
         });
     }
-    //编辑角色
-    function edit(gid) {
-        layer.open({
-            type: 2,
-            title: '编辑角色'+gid,
-            shadeClose: true,
-            shade: 0.8,
-            area: ['800px', '600px'],
-            content: '/admin/groups/edit?gid='+gid
-        });
-    }
+
     //删除管理员
     function del(gid) {
         layer.confirm('确定要删除吗？', {

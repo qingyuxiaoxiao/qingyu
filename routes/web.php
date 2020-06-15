@@ -43,8 +43,11 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     //角色路由组
     Route::get('/admin/groups/index','Groups@index');
     Route::get('/admin/groups/add','Groups@add');
-    Route::get('/admin/groups/edit','Groups@edit');
     Route::post('/admin/groups/save','Groups@save');
     Route::post('/admin/groups/del','Groups@del');
+
+    //站点设置
+    Route::get('admin/setting/index','Setting@index');
+    Route::post('admin/setting/save','Setting@save');
 });
 
