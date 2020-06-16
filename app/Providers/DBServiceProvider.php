@@ -32,6 +32,16 @@ class DBServiceProvider extends ServiceProvider
             }
             return $res;
         });
+        //分页方法
+        QueryBuilder::macro('pages',function ($perPage = 15, $columns = ['*'],$pageName='page', $page = null){
+            $lists = [];
+            $pageobj = $this->paginate($perPage,$columns,$pageName,$page);
+            $temp_list = $pageobj->items();
+            foreach ($temp_list as $val) {
+                $lists[] = (array)$val;
+            }
+            return array('total'=>$pageobj->total(),'lists'=>$lists);
+        });
 
     }
 }

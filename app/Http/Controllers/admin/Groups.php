@@ -29,11 +29,6 @@ class Groups extends Controller
         if ($data['cur_group'] && $data['cur_group']['rights']){
             $data['cur_group']['rights'] = json_decode($data['cur_group']['rights']);
         }
-
-
-
-
-
         //查询menus 表中，没有被禁用的菜单
         $data['menu_list'] = DB::table('admin_menu')->where('pid',0)->where('status',0)->lists();
         $all_menu          = DB::table('admin_menu')->where('status',0)->lists();

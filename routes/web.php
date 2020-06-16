@@ -55,5 +55,12 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     Route::get('/admin/setting/edit_friend','Setting@edit_friend');
     Route::post('/admin/setting/save_friend','Setting@save_friend');
     Route::post('/admin/setting/del_friend_link','Setting@del_friend_link');
+    //文章管理
+
+    Route::get('/admin/article/index','Article@index');
+    Route::get('/admin/article/cates','Article@cates');
+    Route::get('/admin/article/add_cate','Article@add_cate');
+    Route::post('/admin/article/save_cate','Article@save_cate');
+    Route::post('/admin/article/del_cate','Article@del_cate');
 });
 
