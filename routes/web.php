@@ -50,5 +50,10 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     //站点设置
     Route::get('/admin/setting/index','Setting@index');
     Route::post('/admin/setting/save','Setting@save');
+    Route::get('/admin/setting/friend_link','Setting@friend_link');
+    Route::get('/admin/setting/add_friend','Setting@add_friend');
+    Route::get('/admin/setting/edit_friend','Setting@edit_friend');
+    Route::post('/admin/setting/save_friend','Setting@save_friend');
+    Route::post('/admin/setting/del_friend_link','Setting@del_friend_link');
 });
 
