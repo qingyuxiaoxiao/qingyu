@@ -19,6 +19,7 @@ Route::get('/', function () {
 //后台登录路由
 Route::get('/admin/login','admin\Account@login')->name('login');
 Route::post('/admin/dologin','admin\Account@dologin');
+Route::get('/admin/logout','admin\Account@logout');
 //后台验证码路由
 Route::get('/admin/account/captcha','admin\Account@captcha');
 //获取初始密码
@@ -47,7 +48,7 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     Route::post('/admin/groups/del','Groups@del');
 
     //站点设置
-    Route::get('admin/setting/index','Setting@index');
-    Route::post('admin/setting/save','Setting@save');
+    Route::get('/admin/setting/index','Setting@index');
+    Route::post('/admin/setting/save','Setting@save');
 });
 

@@ -47,7 +47,7 @@ class Account extends Controller
     }
     public function logout()
     {
-        Auth::login();
+        Auth::logout();
         return json_encode(array('code'=>0,'msg'=>'退出登录成功'));
     }
     public function captcha(){

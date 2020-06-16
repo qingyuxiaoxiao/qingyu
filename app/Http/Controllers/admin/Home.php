@@ -14,9 +14,9 @@ class Home extends Controller
     {
         $data['admin'] = $request->admin;
 
-        $data['menus'] = DB::table('admin_menu')->where('pid',0)->where('ishidden',0)->where('status',0)->lists();
+        $data['menus'] = DB::table('admin_menu')->whereIn('mid',$data['admin']->rights)->where('pid',0)->where('ishidden',0)->where('status',0)->lists();
         foreach ($data['menus'] as $key => $val){
-            $childs = DB::table('admin_menu')->where('pid',$val['mid'])->where('ishidden',0)->where('status',0)->lists();
+            $childs = DB::table('admin_menu')->whereIn('mid',$data['admin']->rights)->where('pid',$val['mid'])->where('ishidden',0)->where('status',0)->lists();
             $data['menus'][$key]['child'] = $childs;
         }
 

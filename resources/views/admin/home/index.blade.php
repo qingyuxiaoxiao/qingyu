@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>layout 后台大布局 - Layui</title>
+    <title>后台管理系统</title>
     <link rel="stylesheet" href="/static/plugins/layui/css/layui.css">
     <link rel="stylesheet" href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
@@ -12,7 +12,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo">后台管理系统</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
@@ -32,14 +32,14 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    {{ $admin->admin }}
+                    {{ $admin->username }}
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="" onclick="login()">退出</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" onclick="logout()">退出</a></li>
         </ul>
     </div>
 
@@ -78,8 +78,9 @@
 
 <script>
     //JavaScript代码区域
-    layui.use('element', function(){
+    layui.use(['layer','element'], function(){
         var element = layui.element;
+        layer = layui.layer;
         $ = layui.jquery;
 
     });
@@ -94,6 +95,26 @@
         var leftHeight = parent.document.documentElement.clientHeight - 60;
         $('.layui-body').height(leftHeight);
 
+    }
+    function logout() {
+        //询问框
+        layer.confirm('您确定要退出吗？', {
+            icon:3,
+            btn: ['退出','取消'] //按钮
+        }, function(){
+            $.get('/admin/logout',{},function (res) {
+                if (res.code>0){
+                    return layer.alert(res.msg,{icon:2});
+                }
+                layer.msg(res.msg);
+                setTimeout(function () {
+                    window.location.href="/admin/login";
+
+                },1000);
+
+
+            },'json');
+        });
     }
 </script>
 </body>
