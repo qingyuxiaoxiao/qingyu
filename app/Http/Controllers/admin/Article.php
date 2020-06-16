@@ -13,10 +13,9 @@ class Article extends Controller
     {
         $data['cate']  = DB::table('article_cate')->cates('id');
         $data['admin']   = DB::table('admin')->cates('id');
-//        $data['article'] = DB::table('article')->lists();
+//      $data['article'] = DB::table('article')->lists();
         //实现分页
-        //获取分页
-        $data['page'] = (int)$request->page;
+        $data['page'] = (int)$request->page;//获取分页
         $data['pageSize'] = 1;
         $pages = DB::table('article')->pages($data['pageSize']);
         $data['article_list'] = $pages['lists'];
@@ -70,6 +69,5 @@ class Article extends Controller
             DB::table('article_cate')->where('id',$id)->delete();
         }
         exit(json_encode(array('code'=>0,'msg'=>'删除成功')));
-
     }
 }
