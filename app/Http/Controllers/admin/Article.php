@@ -22,6 +22,11 @@ class Article extends Controller
         $data['total']        = $pages['total']; //总数
         return view('admin.article.index',$data);
     }
+    //文章添加
+    public function add()
+    {
+        return view('admin.article.add');
+    }
     //分类列表
     public function cates()
     {

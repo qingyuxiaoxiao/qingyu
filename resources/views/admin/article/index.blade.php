@@ -70,29 +70,29 @@
         });
 
     });
-    //添加管理员
+    //添加文章
     function add() {
         layer.open({
             type: 2,
-            title: '添加管理员',
+            title: '添加文章',
             shadeClose: true,
             shade: 0.8,
-            area: ['600px', '300px'],
-            content: '/admin/admin/add'
+            area: ['800px', '90%'],
+            content: '/admin/article/add'
         });
     }
-    //编辑管理员
+    //编辑文章
     function edit(aid) {
         layer.open({
             type: 2,
-            title: '编辑管理员'+aid,
+            title: '编辑文章'+aid,
             shadeClose: true,
             shade: 0.8,
             area: ['600px', '300px'],
             content: '/admin/admin/edit?aid='+aid
         });
     }
-    //删除管理员
+    //删除文章
     function del(aid) {
         layer.confirm('确定要删除吗？', {
             icon:3,
