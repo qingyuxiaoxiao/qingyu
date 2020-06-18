@@ -59,9 +59,12 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
 
     Route::get('/admin/article/index','Article@index');
     Route::get('/admin/article/add','Article@add');
+
     Route::get('/admin/article/cates','Article@cates');
     Route::get('/admin/article/add_cate','Article@add_cate');
     Route::post('/admin/article/save_cate','Article@save_cate');
     Route::post('/admin/article/del_cate','Article@del_cate');
+    //文件上传
+    Route::post('/admin/files/upload_img','Files@upload_img');
 });
 

@@ -25,8 +25,10 @@ class Article extends Controller
     //文章添加
     public function add()
     {
-        return view('admin.article.add');
+        $data['cates'] = DB::table('article_cate')->lists();
+        return view('admin.article.add',$data);
     }
+
     //分类列表
     public function cates()
     {

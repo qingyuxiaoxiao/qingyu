@@ -78,7 +78,13 @@
             shadeClose: true,
             shade: 0.8,
             area: ['800px', '90%'],
-            content: '/admin/article/add'
+            content: '/admin/article/add',
+            btn:['保存'],
+            yes:function (index, layero) {
+                var body = layer.getChildFrame('body', index);
+                var iframewin = window[layero.find('iframe')[0]['name']];
+                iframewin.save();
+            }
         });
     }
     //编辑文章
