@@ -59,6 +59,8 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
 
     Route::get('/admin/article/index','Article@index');
     Route::get('/admin/article/add','Article@add');
+    Route::post('/admin/article/save','Article@save');
+    Route::post('/admin/article/del','Article@del');
 
     Route::get('/admin/article/cates','Article@cates');
     Route::get('/admin/article/add_cate','Article@add_cate');

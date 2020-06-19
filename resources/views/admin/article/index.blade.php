@@ -37,7 +37,7 @@
             <td>{{ $article['add_time']?date('Y-m-d H:i:s',$article['add_time']):'' }}</td>
             <td>{{ $article['status']==0?'未发布':'发布' }}</td>
             <td>
-                <button class="layui-btn layui-btn-xs" onclick="edit({{ $article['id'] }})">编辑</button>
+                <button class="layui-btn layui-btn-xs" onclick="add({{ $article['id'] }})">编辑</button>
                 <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="del({{ $article['id'] }})">删除</button>
             </td>
         </tr>
@@ -70,15 +70,15 @@
         });
 
     });
-    //添加文章
-    function add() {
+    //添加文章或修改文章
+    function add(aid) {
         layer.open({
             type: 2,
-            title: '添加文章',
+            title: aid>0?'编辑文章':'添加文章',
             shadeClose: true,
             shade: 0.8,
             area: ['800px', '90%'],
-            content: '/admin/article/add',
+            content: '/admin/article/add?aid='+aid,
             btn:['保存'],
             yes:function (index, layero) {
                 var body = layer.getChildFrame('body', index);
@@ -87,17 +87,7 @@
             }
         });
     }
-    //编辑文章
-    function edit(aid) {
-        layer.open({
-            type: 2,
-            title: '编辑文章'+aid,
-            shadeClose: true,
-            shade: 0.8,
-            area: ['600px', '300px'],
-            content: '/admin/admin/edit?aid='+aid
-        });
-    }
+
     //删除文章
     function del(aid) {
         layer.confirm('确定要删除吗？', {
@@ -105,7 +95,7 @@
             btn: ['删除','取消'] //按钮
         }, function(){
             var _token = $('input[name="_token"]').val();
-            $.post('/admin/admin/del',{aid:aid,_token:_token},function (res) {
+            $.post('/admin/article/del',{aid:aid,_token:_token},function (res) {
                 if (res.code>0){
                     return layer.alert(res.msg,{icon:2});
                 }

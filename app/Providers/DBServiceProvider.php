@@ -11,7 +11,7 @@ class DBServiceProvider extends ServiceProvider
         QueryBuilder::macro('item',function (){
             $data = $this->first();
             $data = (array)$data;
-            return $data;
+            return $data?$data:false;
         });
 
         //返回数组列表

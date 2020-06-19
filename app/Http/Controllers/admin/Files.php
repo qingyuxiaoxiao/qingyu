@@ -14,7 +14,7 @@ class Files extends Controller
         $path = $request->file('file')->store('public/avatars/'.date('Y/m/d'));
         $url = Storage::url($path);
         exit(json_encode(array('code'=>0,'msg'=>'','data'=>array('src'=>$url))));
-
+        // linux 创建软连接 ln -s /www/admin/demo.nmgseozx.com_80/wwwroot/storage/app/public /www/admin/demo.nmgseozx.com_80/wwwroot/public/storage
 /*
         //采用原生方式进行上传
         //获取上传文件

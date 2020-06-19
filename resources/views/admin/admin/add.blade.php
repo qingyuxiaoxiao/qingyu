@@ -113,9 +113,7 @@
             layer.msg(res.msg);
             setTimeout(function () {
                 parent.window.location.reload();
-
             },1000);
-
         },'json');
 
     }
