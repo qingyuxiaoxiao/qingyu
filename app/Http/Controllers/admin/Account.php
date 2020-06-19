@@ -54,6 +54,26 @@ class Account extends Controller
         VeriCode::create();
 
     }
+
+    public function xz()
+    {
+        $dz = 'http://apis.juhe.cn/xzqh/query?fid=&key=db001b43e5ea623a4c611d8d70f945b0';
+        $fid = "";
+        $res = array(file_get_contents($dz));
+        foreach ($res as $key=>$val){
+            $ress = json_decode($val);
+            $ress = array($ress->result);
+            foreach ($ress as $key=>$val){
+                foreach ($val as $k=>$value){
+                    $dsz = 'http://apis.juhe.cn/xzqh/query?fid='.$value->id.'&key=db001b43e5ea623a4c611d8d70f945b0';
+                    $dsz =array(file_get_contents($dsz));
+                    echo '<pre>';
+                    print_r($dsz);
+                }
+            }
+        }
+
+    }
     //密码加密
     public function mima()
     {
