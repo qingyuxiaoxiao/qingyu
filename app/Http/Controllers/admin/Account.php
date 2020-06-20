@@ -57,22 +57,34 @@ class Account extends Controller
 
     public function xz()
     {
-        $dz = 'http://apis.juhe.cn/xzqh/query?fid=&key=db001b43e5ea623a4c611d8d70f945b0';
+        $dz = 'http://apis.juhe.cn/xzqh/query?fid=&key=f49d9e06ae9d309e1a949cbfe5f54f05';
         $fid = "";
         $res = array(file_get_contents($dz));
         foreach ($res as $key=>$val){
             $ress = json_decode($val);
             $ress = array($ress->result);
+
             foreach ($ress as $key=>$val){
                 foreach ($val as $k=>$value){
-                    $dsz = 'http://apis.juhe.cn/xzqh/query?fid='.$value->id.'&key=db001b43e5ea623a4c611d8d70f945b0';
+                    DB::table('sf')->insert(array('code'=>$value->id,'name'=>$value->name,'fid'=>$value->fid,'level_id'=>$value->level_id));
+                    $dsz = 'http://apis.juhe.cn/xzqh/query?fid='.$value->id.'&key=f49d9e06ae9d309e1a949cbfe5f54f05';
                     $dsz =array(file_get_contents($dsz));
-                    echo '<pre>';
-                    print_r($dsz);
+                    foreach ($dsz as $ks=> $va){
+                        $rees = json_decode($va);
+                        $rees = array($rees->result);
+                        foreach ($rees as $keys=>$valuses){
+                            foreach ($valuses as $keyse => $valusess){
+                                DB::table('sf')->insert(array('code'=>$valusess->id,'name'=>$valusess->name,'fid'=>$valusess->fid,'level_id'=>$valusess->level_id));
+                                echo '<pre>';
+                                print_r($valusess);
+                            }
+                        }
+                        echo '<pre>';
+                        print_r($rees);
+                    }
                 }
             }
         }
-
     }
     //密码加密
     public function mima()
