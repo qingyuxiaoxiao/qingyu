@@ -64,9 +64,11 @@ class Account extends Controller
             $ress = json_decode($val);
             $ress = array($ress->result);
 
-            foreach ($ress as $key=>$val){
-                foreach ($val as $k=>$value){
+            foreach ($ress as $key=>$vals){
+                foreach ($vals as $k=>$value){
+                    //将省存入数据库
                     DB::table('sf')->insert(array('code'=>$value->id,'name'=>$value->name,'fid'=>$value->fid,'level_id'=>$value->level_id));
+                    //将省fid放入接口中进行查询数据
                     $dsz = 'http://apis.juhe.cn/xzqh/query?fid='.$value->id.'&key=f49d9e06ae9d309e1a949cbfe5f54f05';
                     $dsz =array(file_get_contents($dsz));
                     foreach ($dsz as $ks=> $va){
@@ -75,8 +77,21 @@ class Account extends Controller
                         foreach ($rees as $keys=>$valuses){
                             foreach ($valuses as $keyse => $valusess){
                                 DB::table('sf')->insert(array('code'=>$valusess->id,'name'=>$valusess->name,'fid'=>$valusess->fid,'level_id'=>$valusess->level_id));
-                                echo '<pre>';
-                                print_r($valusess);
+                                $dszs = 'http://apis.juhe.cn/xzqh/query?fid='.$valusess->id.'&key=f49d9e06ae9d309e1a949cbfe5f54f05';
+                                $dszs =array(file_get_contents($dszs));
+                                foreach ($dszs as $keysy=>$valusesy){
+                                    $reesy = json_decode($valusesy);
+                                    $reesy = array($reesy->result);
+                                    foreach ($reesy as $keysys=>$vaas){
+                                        foreach ($vaas as $keye=>$vaa){
+                                            DB::table('sf')->insert(array('code'=>$vaa->id,'name'=>$vaa->name,'fid'=>$vaa->fid,'level_id'=>$vaa->level_id));
+                                            echo '<pre>';
+                                            print_r($valusess);
+                                        }
+                                    }
+                                }
+//                                echo '<pre>';
+//                                print_r($valusess);
                             }
                         }
                         echo '<pre>';
