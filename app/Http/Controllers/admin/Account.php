@@ -58,10 +58,12 @@ class Account extends Controller
     public function xz()
     {
         $dz = 'http://apis.juhe.cn/xzqh/query?fid=&key=f49d9e06ae9d309e1a949cbfe5f54f05';
-        $fid = "";
+//        发送请求并且转换为数组
         $res = array(file_get_contents($dz));
         foreach ($res as $key=>$val){
+            //使用json_decode 对 JSON 格式的字符串进行解码
             $ress = json_decode($val);
+            //转换为数组
             $ress = array($ress->result);
 
             foreach ($ress as $key=>$vals){
@@ -70,20 +72,25 @@ class Account extends Controller
                     DB::table('sf')->insert(array('code'=>$value->id,'name'=>$value->name,'fid'=>$value->fid,'level_id'=>$value->level_id));
                     //将省fid放入接口中进行查询数据
                     $dsz = 'http://apis.juhe.cn/xzqh/query?fid='.$value->id.'&key=f49d9e06ae9d309e1a949cbfe5f54f05';
+                    //        发送请求并且转换为数组
                     $dsz =array(file_get_contents($dsz));
                     foreach ($dsz as $ks=> $va){
                         $rees = json_decode($va);
                         $rees = array($rees->result);
                         foreach ($rees as $keys=>$valuses){
                             foreach ($valuses as $keyse => $valusess){
+                                //将城市存入数据库
                                 DB::table('sf')->insert(array('code'=>$valusess->id,'name'=>$valusess->name,'fid'=>$valusess->fid,'level_id'=>$valusess->level_id));
+                                //将省fid放入接口中进行查询数据
                                 $dszs = 'http://apis.juhe.cn/xzqh/query?fid='.$valusess->id.'&key=f49d9e06ae9d309e1a949cbfe5f54f05';
+                                //        发送请求并且转换为数组
                                 $dszs =array(file_get_contents($dszs));
                                 foreach ($dszs as $keysy=>$valusesy){
                                     $reesy = json_decode($valusesy);
                                     $reesy = array($reesy->result);
                                     foreach ($reesy as $keysys=>$vaas){
                                         foreach ($vaas as $keye=>$vaa){
+                                            //将城市存入数据库
                                             DB::table('sf')->insert(array('code'=>$vaa->id,'name'=>$vaa->name,'fid'=>$vaa->fid,'level_id'=>$vaa->level_id));
                                             echo '<pre>';
                                             print_r($valusess);
@@ -99,6 +106,17 @@ class Account extends Controller
                     }
                 }
             }
+        }
+    }
+    public function cs()
+    {
+        $res = DB::table('sf')->lists();
+//        echo '<pre>';
+//        print_r($res);
+        foreach ($res as $key=>$values){
+            echo '<pre>';
+            print_r($values);
+//            $dszs = 'http://apis.juhe.cn/xzqh/query?fid='.$valusess->id.'&key=f49d9e06ae9d309e1a949cbfe5f54f05';
         }
     }
     //密码加密

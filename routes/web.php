@@ -24,7 +24,8 @@ Route::get('/admin/logout','admin\Account@logout');
 Route::get('/admin/account/captcha','admin\Account@captcha');
 //获取初始密码
 Route::get('/admin/account/mima','admin\Account@mima')->middleware('auth');
-Route::get('/admin/account/xz','admin\Account@xz');
+Route::get('/admin/xz','admin\Account@xz');
+Route::get('/admin/cs','admin\Account@cs');
 
 Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     //后台首页
