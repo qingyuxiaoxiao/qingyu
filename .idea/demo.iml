@@ -105,6 +105,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/wxpay/doc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/wxpay/example" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/wxpay/lib" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
