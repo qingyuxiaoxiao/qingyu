@@ -23,7 +23,7 @@ Route::get('/admin/logout','admin\Account@logout');
 //后台验证码路由
 Route::get('/admin/account/captcha','admin\Account@captcha');
 //获取初始密码
-Route::get('/admin/account/mima','admin\Account@mima')->middleware('auth');
+Route::get('/admin/account/mima','admin\Account@mima');
 Route::get('/admin/xz','admin\Account@xz');
 Route::get('/admin/cs','admin\Account@cs');
 
@@ -70,5 +70,11 @@ Route::namespace('admin')->middleware(['auth','rights'])->group(function (){
     Route::post('/admin/article/del_cate','Article@del_cate');
     //文件上传
     Route::post('/admin/files/upload_img','Files@upload_img');
+
+    //商品管理
+    Route::get('/admin/product/index','Product@index');
+    Route::get('/admin/product/add','Product@add');
+    Route::post('/admin/product/save','Product@save');
+    Route::get('/admin/product/search_product_cates','Product@search_product_cates');
 });
 
