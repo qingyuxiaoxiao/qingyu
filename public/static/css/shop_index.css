@@ -1,0 +1,28 @@
+/*全站首页样式表*/
+
+/*样式重置样式表*/
+@import "/static/css/components/public/public_reset.css";
+
+/*公共页眉*/
+@import "/static/css/components/public/public_header/public_header.css";
+
+/*公共页脚*/
+@import "/static/css/components/public/public_footer/public_footer.css";
+
+/*商城公共头部*/
+@import "/static/css/components/shop/shop_public_header/shop_public_header.css";
+
+/*商城头部导航与轮播*/
+@import "/static/css/components/shop/shop_index_nav/shop_index_nav.css";
+
+/*商城首页的商品列表*/
+@import "/static/css/components/shop/shop_index_goods/shop_index_goods.css";
+
+/*通用大标题*/
+@import "/static/css/components/public/public_headline/public_headline.css";
+
+/*商城二手交易专区*/
+@import "/static/css/components/public/public_second_hand/public_second_hand.css";
+
+
+

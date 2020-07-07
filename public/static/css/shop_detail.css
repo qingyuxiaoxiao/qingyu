@@ -1,0 +1,54 @@
+/*全站首页样式表*/
+
+/*样式重置样式表*/
+@import "/static/css/components/public/public_reset.css";
+
+/*公共页眉*/
+@import "/static/css/components/public/public_header/public_header.css";
+
+/*公共页脚*/
+@import "/static/css/components/public/public_footer/public_footer.css";
+
+/*商城公共头部*/
+@import "/static/css/components/shop/shop_public_header/shop_public_header.css";
+
+/*商品图片与描述*/
+@import "/static/css/components/shop/shop_detail_buy/shop_detail_buy.css";
+
+/*商品左侧推荐商品区列表*/
+@import "/static/css/components/shop/shop_detail_recommend/shop_detail_recommend.css";
+
+/*商品详情的选项卡*/
+@import "/static/css/components/shop/shop_detail_tab/shop_detail_tab.css";
+
+/*评论与回复*/
+@import "/static/css/components/public/public_comment_reply/public_comment_reply.css";
+main > .detail{
+    display: grid;
+
+    grid-template-columns: 180px 1000px;
+    grid-template-rows: 410px minmax(760px, auto);
+    grid-template-areas: 'desc desc'
+        'recommend tab'
+        '. comment-reply';
+    grid-gap: 20px;
+    justify-content: center;
+
+    margin-bottom: 30px;
+}
+main > .detail > .shop-detail-bug {
+    grid-area: desc;
+    margin-top: 20px;
+}
+
+main > .detail > .shop-detail-recommend {
+    grid-area: recommend;
+}
+
+main > .detail > .shop-detail-tab {
+    grid-area: tab;
+}
+
+main > .detail > .public-comment-reply {
+    grid-area: comment-reply;
+}

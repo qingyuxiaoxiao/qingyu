@@ -1,0 +1,151 @@
+@import url(../../public/public_reset.css);
+
+.shop-detail-bug {
+    width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto;
+    background-color: #fff;
+}
+/*鼠标悬停特效*/
+.shop-detail-bug:hover {
+    box-shadow: 0 0 8px #888888;
+}
+
+/*头部面包屑*/
+.shop-detail-bug > nav {
+    margin-bottom: 20px;
+}
+.shop-detail-bug > nav > a:hover {
+    color: red;
+}
+
+/*主体: 图片与价格简介*/
+.shop-detail-bug > article {
+    display: flex;
+}
+
+/*商品图片*/
+.shop-detail-bug > article > span {
+    width: 350px;
+    height: 280px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.shop-detail-bug > article > span > img {
+    width: 100%;
+}
+
+
+/*商品描述*/
+.shop-detail-bug > article > div {
+    height: 310px;
+    flex: auto;
+    margin-left: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*将商品描述中的子元素中, 除了第二个价格外, 高度统一设置为40px*/
+.shop-detail-bug > article > div > *:not(:nth-child(2)) {
+    height: 40px;
+}
+/*商品标题*/
+.shop-detail-bug > article > div > h3 {
+    font-size: 23px;
+    font-weight: normal;
+}
+
+/*商品价格*/
+.shop-detail-bug > article > div > .price {
+    /*第二个子元素单独设置高宽为80px*/
+    height: 80px;
+    background-color: #efefef;
+    /*价格中的二个描述文本使用flex布局*/
+    display: flex;
+    /*快速垂直居中*/
+    align-items: center;
+    padding-left: 25px;
+}
+/*商品价格中的第一个文本: 特惠*/
+.shop-detail-bug > article > div > .price :first-child {
+    font-size: 16px;
+    color: gray;
+}
+/*商品价格中的第二个文本: 价格*/
+.shop-detail-bug > article > div > .price :last-child {
+    font-size: 23px;
+    color: red;
+    margin-left: 16px;
+}
+
+/*基本描述*/
+.shop-detail-bug > article > div > .desc {
+    /*height: 40px;*/
+}
+.shop-detail-bug > article > div > .desc span {
+    color: red;
+}
+
+/*购买数量*/
+.shop-detail-bug > article > div > .buy-num >input {
+    width: 70px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    margin-left: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #555555;
+    outline: none;
+}
+
+.shop-detail-bug > article > div > .buy-num >input:hover {
+    box-shadow: 0 0 5px green;
+}
+/*购买按钮: 第一个立即购买*/
+.shop-detail-bug > article > div > .buy-btn > :first-child {
+    background-color: #f64c59;
+    color: white;
+    width: 92px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    border: none;
+    margin-right: 20px;
+}
+
+
+/*购买按钮: 第二个放进购物车*/
+.shop-detail-bug > article > div > .buy-btn > :last-child {
+    background-color: #009688;
+    color: white;
+    width: 118px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    border: none;
+}
+
+/*按钮鼠标悬停效果*/
+.shop-detail-bug > article > div > .buy-btn > :first-child:hover,
+.shop-detail-bug > article > div > .buy-btn > :last-child:hover {
+    box-shadow: 0 0 5px #888888;
+    cursor: pointer;
+}
+
+.shop-detail-bug > article > div > .promise > span {
+    margin-left: 20px;
+    cursor: default;
+}
+.shop-detail-bug > article > div > .promise > span:hover {
+    color: lightcoral;
+}
+/*字体图标样式*/
+.shop-detail-bug > article > div > .promise i {
+    color: red;
+    padding-right: 5px;
+}

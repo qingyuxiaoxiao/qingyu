@@ -1,0 +1,76 @@
+/*导入样式重置文档*/
+@import "../public_reset.css";
+
+/*底部*/
+.public-footer {
+    /*基本样式*/
+    background-color: #282c31;
+    color: #959ba2;
+    padding: 30px;
+    /*网格布局*/
+    display: grid;
+    /*水平: 列模板*/
+    grid-template-columns: 130px 550px 400px;
+    /*垂直: 行模板*/
+    grid-template-rows: 30px 160px;
+    /*网格区域模板*/
+    grid-template-areas: 'link link rwm'
+    'logo info rwm';
+
+    /*水平居中对齐*/
+    justify-content: center;
+}
+
+/*页脚头部导航*/
+.public-footer > div:first-of-type {
+    /*网格区域名称*/
+    grid-area: link;
+}
+
+/*设置头部导航中的链接样式*/
+.public-footer > div:first-of-type a {
+    color: #959ba2;
+    padding: 5px 15px;
+}
+
+/*LOGO占位符样式*/
+.public-footer > div:nth-of-type(2) {
+    /*网格区域名称*/
+    grid-area: logo;
+    /*基本样式*/
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+/*版权备案号等其它信息*/
+.public-footer > div:nth-of-type(3) {
+    /*网格区域名称*/
+    grid-area: info;
+    /*基本样式*/
+    font-size: 13px;
+    line-height: 40px;
+}
+
+/*二维码样式*/
+.public-footer > div:last-of-type {
+    /*网格区域名称*/
+    grid-area: rwm;
+
+    /*基本样式*/
+    border-left: 1px solid #000;
+    padding-left: 40px;
+}
+
+/*二维码上的描述文本样式*/
+.public-footer > div:last-of-type p {
+    font-size: 13px;
+    margin-left: 20px;
+}
+
+/*二维码图片样式*/
+.public-footer > div:last-of-type img {
+    width: 110px;
+    height: 110px;
+    margin-top: 10px;
+}
+

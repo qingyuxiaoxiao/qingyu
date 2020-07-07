@@ -1,0 +1,17 @@
+@import "../../public/public_reset.css";
+
+@import "../../public/public_comment_list/public_comment_list.css";
+
+.image-list-slider {
+    background-color: #fff;
+    padding-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: 900px 300px;
+    grid-column-gap: 10px;
+    justify-content: center;
+}
+
+.image-list-slider > .slider {
+    align-self: end;
+}

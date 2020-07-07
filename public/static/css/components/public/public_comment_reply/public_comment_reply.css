@@ -1,0 +1,131 @@
+@import "../public_reset.css";
+
+/*1. 评论区域的样式*/
+.public-comment-reply {
+    /*宽度和高度主它自适应的父元素,这里不要设置*/
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    /*弹性布局, 整体垂直排列*/
+    display: flex;
+    flex-direction: column;
+}
+.public-comment-reply img {
+    box-shadow: 1px 1px 3px #cccccc;
+    border-radius: 5px;
+}
+/*评论区整体样式*/
+.public-comment-reply > .comment {
+    /*弹性盒子,垂直排列*/
+    display: flex;
+    flex-direction: column;
+}
+
+/*设置用户头像图片大小*/
+.public-comment-reply img {
+    width: 60px;
+    height: 60px;
+}
+.public-comment-reply > .comment h3 {
+    padding: 20px 0;
+    border-top: 1px solid #cccccc;
+}
+
+/*设置评论发布区: 头像与按钮的样式*/
+.public-comment-reply .comment > div {
+    padding: 15px;
+    height: 200px;
+    /*头像与按钮应该水平排列,转为弹性盒子*/
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.public-comment-reply .comment > div  img {
+    /*垂直方向从起始位置显示,这也是默认值,可省略*/
+    align-self: start;
+}
+
+/*设置文本域样式*/
+.public-comment-reply .comment > div textarea {
+    height: 200px;
+    margin-left: 20px;
+    resize: none;
+    /*占据剩余全部空间, flex: 1*/
+    flex: auto;
+}
+.public-comment-reply .comment > div textarea:hover {
+    box-shadow: 0 0 8px #888;
+}
+/*自定义发表评论的按钮样式*/
+.public-comment-reply .comment > button {
+    font-size: 14px;
+    background-color: #f64c59;
+    border: none;
+    color: white;
+    width: 150px;
+    height: 40px;
+
+    /*按钮居右显示,即交叉轴上对齐到结束框*/
+    align-self: end;
+}
+
+.public-comment-reply .comment > button:hover {
+    background-color: #178cee;
+    box-shadow: 0 0 5px #888;
+}
+
+/*2. 回复区域的样式*/
+.public-comment-reply > .reply {
+    /*弹性盒子,垂直排列*/
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+}
+
+.public-comment-reply > .reply > h3 {
+    padding: 20px 0;
+}
+
+/*回复区整体水平排列(默认值): 头像与回复详情*/
+.public-comment-reply > .reply > div {
+    display: flex;
+    /*让每条回复之间有一定的间隙*/
+    margin-top: 30px;
+}
+
+/*用户头像垂直居中*/
+.public-comment-reply > .reply > div > img {
+    align-self: center;
+}
+
+/*回复详情垂直排列三行*/
+.public-comment-reply > .reply > div .detail {
+    /*回复详情占据水平剩余全部空间*/
+    flex:auto;
+
+    /*转为弹性盒子,且垂直排列*/
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    /*必须设置高度, 否则主轴无法产生剩余空间*/
+    height: 90px;
+    /*三行文本二端对齐*/
+    justify-content: space-between;
+}
+
+/*将回复点赞按钮,放在最右边*/
+.public-comment-reply > .reply > div .detail > div {
+    /*将发表时间和回复点赞所在容器设置为flex容器,以简化代码*/
+    display: flex;
+    flex-direction: row;
+    /*二端对齐, 实现最终效果*/
+    justify-content: space-between;
+}
+
+
+.public-comment-reply > .reply > div .detail > div i {
+    color: red;
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+

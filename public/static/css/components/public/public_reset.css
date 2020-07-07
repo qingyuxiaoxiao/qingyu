@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    /*参考轮廓线*/
+    /*outline: 1px dashed red;*/
+}
+
+body {
+    font-size: 13px;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", Tahoma, Arial, sans-serif;
+    color: #555555;
+    background-color: #efefef;
+}
+
+a {
+    color: #404040;
+    /*去掉链接默认下划线*/
+    text-decoration: none;
+    /*链接字体大小需要单独设置*/
+    font-size: 13px;
+}
+
+li {
+    /*去掉列表项前面的默认标识符,如小黑点*/
+    list-style: none;
+}

@@ -1,0 +1,111 @@
+/*样式重置*/
+@import "../../public/public_reset.css";
+/*通用大标题*/
+@import "../../public/public_headline/public_headline.css";
+
+/*商城专区图文列表专区*/
+.shop-index-goods {
+    /*基本样式*/
+    width: 1200px;
+    padding: 15px;
+    /*水平居中*/
+    margin: auto;
+    /*盒子大小不受padding与border影响*/
+    box-sizing: border-box;
+    background-color: #ffffff;
+
+    border-radius: 10px;
+}
+
+.shop-index-goods:hover {
+    box-shadow: 0 0 8px #888;
+}
+
+/*标题1*/
+.shop-index-goods > .title1 {
+    height: 50px;
+    /*确保高度始终为51*/
+    box-sizing: border-box;
+    border-bottom: 1px solid #cccccc;
+}
+.shop-index-goods > .title1 > a {
+    font-size: 23px;
+    /*链接与描述文本之间应该有间隙*/
+    margin-right: 20px;
+}
+.shop-index-goods > .title1 > span {
+    color: red;
+}
+
+/*标题2*/
+.shop-index-goods > .title2 {
+    height: 55px;
+}
+.shop-index-goods > .title2 > span {
+    font-size: 23px;
+    color: red;
+}
+.shop-index-goods > .title2 > span ~ a {
+    /*每个链接标签之间应该有间隙*/
+    padding-left: 20px;
+}
+
+/*商品展示区*/
+.shop-index-goods > .goods {
+    height: 440px;
+    display: flex;
+}
+/*左侧商品列表*/
+.shop-index-goods > .goods > .goods-list {
+    padding: 10px;
+    /*与二手交易区样式对比, 这里应该取消宽度限制,因为只有图文列表*/
+    /*flex-basis: 800px;*/
+    /*转为弹性盒子*/
+    display: flex;
+    /*水平换行*/
+    flex-flow: row wrap;
+    /*整体二端对齐*/
+    justify-content: space-between;
+
+
+}
+/*商品图片与描述文本的整体样式*/
+.shop-index-goods > .goods > .goods-list > .intro {
+    width: 178px;
+    height: 200px;
+    /*转为弹性盒子*/
+    display: flex;
+    /*垂直为主轴, 不换行*/
+    flex-flow: column nowrap;
+    /*垂直方向两端对齐*/
+    justify-content: space-between;
+}
+
+/*商品图片*/
+.shop-index-goods > .goods > .goods-list > .intro img {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+/*价格与分类标签*/
+.shop-index-goods > .goods > .goods-list > .intro span:first-of-type {
+    color: red;
+}
+
+/*这行要先加上, 才能让标签右对齐*/
+.shop-index-goods > .goods > .goods-list > .intro > div {
+    display: flex;
+}
+.shop-index-goods > .goods > .goods-list > .intro span:last-of-type {
+    color: white;
+    background-color: #55ce9f;
+    padding: 0 5px;
+    /*标签居中显示, 切记要把父元素div改为flex,显示该属性无效*/
+    margin-left: auto;
+}
+
+
+
+
+
+

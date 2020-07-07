@@ -1,0 +1,31 @@
+/*导入样式重置样式表*/
+@import "../public_reset.css";
+
+.public-comment-list {
+    width: 300px;
+    background: #ffffff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.public-comment-list > h3 {
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc;
+}
+
+.public-comment-list > ul > li {
+    margin-top: 10px;
+    margin-left: 10px;
+    /*将列表项标识符号改为罗马数字,即有序列表*/
+    list-style: decimal;
+}
+
+/*鼠标悬停样式*/
+.public-comment-list > ul > li > a:hover {
+    color: lightcoral;
+}
+
+/*前三个列表项序号描红*/
+.public-comment-list > ul > li:nth-child(-n+3) {
+    color: red;
+}

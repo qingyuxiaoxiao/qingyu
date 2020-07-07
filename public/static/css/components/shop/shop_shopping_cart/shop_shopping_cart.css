@@ -1,0 +1,167 @@
+@import url(../../public/public_reset.css);
+
+/* 购物车整体样式 */
+.shop-shopping-cart {
+  width: 1200px;
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 15px 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.shop-shopping-cart:hover {
+  box-shadow: 0 0 8px #888888;
+}
+/* 标题 */
+.shop-shopping-cart > h3 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+/* 购物车头部 */
+.shop-shopping-cart > header {
+  height: 40px;
+  border-bottom: 1px solid #cccccc;
+  /* flex布局 */
+  display: flex;
+  /* 分散对齐 */
+  justify-content: space-around;
+  /* 垂直居中 */
+  align-items: center;
+}
+
+/* 购物车主体 */
+.shop-shopping-cart > main {
+  margin: 20px 0;
+}
+
+/* 购物车主体中的每一条购买记录 */
+.shop-shopping-cart > main > div {
+  height: 80px;
+
+  /* 转弹性容器 */
+  display: flex;
+
+  /* 每个商品的属性分散对齐 */
+  justify-content: space-around;
+  /* 交叉轴垂直居中 */
+  align-items: center;
+}
+
+/* 设置每一个商品鼠标悬停样式 */
+.shop-shopping-cart > main > div:hover {
+  background-color: lightcyan;
+}
+
+/* 设置商品图文介绍字段的样式 */
+.shop-shopping-cart > main > div .pic-intro {
+  width: 250px;
+  /* 转为flex,便于左右对齐 */
+  display: flex;
+  /* 垂直居中 */
+  align-items: center;
+}
+
+/* 商品缩略图 */
+.shop-shopping-cart > main > div .pic-intro img {
+  width: 60px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+/* 商品标题鼠标悬停样式 */
+.shop-shopping-cart > main > div a:hover {
+  color: lightcoral;
+}
+
+/* 下面进行字段偏移,将每一个商品字段与标题进行精准定位 */
+
+/* 微调第一个复选框 */
+.shop-shopping-cart > main > div > span:first-of-type {
+  position: relative;
+  left: 25px;
+}
+
+/* 微调商品信息*/
+.shop-shopping-cart > main > div > span.pic-intro {
+  position: relative;
+  left: -40px;
+}
+
+/* 微调单价 */
+.shop-shopping-cart > main > div > span:nth-of-type(3) {
+  position: relative;
+  left: -80px;
+}
+
+/* 商品数量 */
+.shop-shopping-cart > main > div > span:nth-of-type(4) {
+  position: relative;
+  left: -60px;
+}
+/* 数量输入框宽度 */
+.shop-shopping-cart > main > div > span:nth-of-type(4) input {
+  width: 60px;
+}
+
+/* 操作链接:删除 */
+.shop-shopping-cart > main > div > span:last-of-type {
+  position: relative;
+  left: -20px;
+}
+
+/* 微调价格小计字段 */
+.shop-shopping-cart > main > div > span:nth-last-of-type(2) {
+    position: relative;
+    left: -50px;
+}
+
+/* 价格前面的人民币符号,给一个特殊样式 */
+.shop-shopping-cart > main > div > span:nth-last-of-type(2) i {
+  color: green;
+  font-size: 1.01rem;
+  margin-right: 3px;
+}
+
+/* 购物车底部 */
+.shop-shopping-cart > footer {
+  height: 70px;
+
+  /* 转为flex, 进行精确控制 */
+  display: flex;
+
+  /* 设置内边距与上边框 */
+  padding: 20px;
+  border-top: 1px solid #cccccc;
+  /* 重置盒大小 */
+  box-sizing: border-box;
+
+  /* flex项目居右对齐 */
+  justify-content: flex-end;
+  /* 垂直居中 */
+  align-items: center;
+}
+
+/* 选中除了提交按钮之外的所有flex项目 */
+.shop-shopping-cart > footer > *:not(:last-child) {
+  /* 宽度统一设置为170px,进行精准定位,与上面的商品字段对齐 */
+  width: 180px;
+}
+
+/* 设置结算按钮的样式 */
+.shop-shopping-cart > footer > button {
+  height: 40px;
+  width: 120px;
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+}
+
+/* 按钮鼠标悬停效果 */
+.shop-shopping-cart > footer > button:hover {
+  background-color: seagreen;
+  cursor: pointer;
+}

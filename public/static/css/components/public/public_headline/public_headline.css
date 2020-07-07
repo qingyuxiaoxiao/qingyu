@@ -1,0 +1,11 @@
+.public-headline {
+    padding: 30px;
+    text-align: center;
+}
+
+.public-headline span {
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 7px;
+    border-bottom: 3px solid red;
+}

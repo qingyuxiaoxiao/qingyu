@@ -1,0 +1,17 @@
+.article_detail-content {
+    min-width: 870px;
+    background-color: #fff;
+    color: #333333;
+    line-height: 30px;
+    text-indent: 2em;
+}
+.article_detail-content > h1 {
+    font-size: 38px;
+    padding-bottom: 20px;
+}
+.article_detail-content > h1 + div {
+    color: #888;
+    padding: 20px 0;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}

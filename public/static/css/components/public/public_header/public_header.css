@@ -1,0 +1,43 @@
+/*导入样式重置文档*/
+@import "../public_reset.css";
+
+/*全部顶部导航区*/
+.public-header {
+    height: 44px;
+    background-color: black;
+    /*导航链接不要太靠边*/
+    padding: 0 20px;
+
+    /*弹性布局*/
+    display: flex;
+    /*水平排列且不换行*/
+    flex-flow: row nowrap;
+}
+
+/*设置链接样式*/
+.public-header a {
+    /*垂直居中*/
+    line-height: 44px;
+    padding: 0 10px;
+    color: #cccccc;
+}
+
+/*鼠标悬停链接的样式*/
+.public-header > a:hover {
+    background-color: #fff;
+    color: black;
+}
+
+/*最后二个链接:登录,注册居右对齐*/
+.public-header > span{
+    margin-left: auto;
+}
+
+/*设置字体图标*/
+.public-header > span i {
+    /*字体图标大小必须用font-size,不支持width,height*/
+    font-size: 16px;
+    /*字体图标可使用color属性设置前景色*/
+    color: #ccc;
+    padding-right: 10px;
+}

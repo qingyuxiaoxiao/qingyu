@@ -1,0 +1,150 @@
+@import "../../public/public_reset.css";
+
+/*首页导航+轮播图*/
+.index-header {
+    background-color: #fff;
+    padding: 30px 0 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.index-header > .content {
+    width: 1200px;
+    margin: auto;
+}
+
+/********** 1. 顶部logo,搜索框与快速入口 **********/
+
+.index-header > .content > .log-search {
+    display: flex;
+    /*两端对齐*/
+    justify-content: space-between;
+}
+
+.index-header > .content > .log-search {
+    display: flex;
+}
+
+/*头部搜索框样式*/
+.index-header > .content > .log-search > .search {
+    width: 430px;
+    /*转为flex,可以更精准的控制搜索框与放大镜图标的样式*/
+    display: flex;
+    /*居中对齐,实际上会看到并到对正,因为那个label相对定位走了*/
+    justify-content: flex-end;
+    /*可以看出,搜索框应该更靠右会更好看一些,使用相对定精确移动*/
+    position: relative;
+    left: 140px;
+}
+.index-header > .content > .log-search > .search > input {
+    width: 333px;
+    height: 36px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    /*去掉轮廓线,获取焦点时不会出现蓝色边框*/
+    outline: none;
+    padding: 6px;
+    /*垂直居中*/
+    align-self: center;
+}
+.index-header > .content > .log-search > .search > input:hover {
+    box-shadow: 0 0 5px #888888;
+}
+.index-header > .content > .log-search > .search > label {
+    font-size: 28px;
+    position: relative;
+    top: 2px;
+    left: -38px;
+
+    /*垂直居中*/
+    align-self: center;
+
+}
+
+/*快速入口*/
+.index-header > .content > .log-search > .quick-entry {
+    /*必须设置宽度,否则无法产生剩余空间可供分配*/
+    width: 300px;
+    display: flex;
+    /*所有图标二端对齐*/
+    justify-content: space-between;
+}
+/*快速入口的图标设置*/
+.index-header > .content > .log-search > .quick-entry a {
+    font-size: 33px;
+    /*图标垂直居中*/
+    align-self: center;
+}
+
+/*用户鼠标划过字体图标时提供一个变色的效果反馈,提升体验*/
+.index-header > .content > .log-search > .quick-entry a:hover {
+    color: red;
+}
+
+/********** 2. 中部的主导航区 **********/
+
+.index-header > .content > .main-nav {
+    margin: 20px auto;
+    /*导航非常规范,网格更加快速*/
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+}
+
+/*每组导航区转为flex,水平排列*/
+.index-header > .content > .main-nav .nav-detail {
+    display: flex;
+}
+
+/*最左边的图标与标签比较特殊*/
+.index-header > .content > .main-nav .nav-detail .pic {
+    /*添加右边竖线*/
+    padding-right: 10px;
+    border-right: 1px solid #cccccc;
+    /*转为flex*/
+    display: flex;
+}
+/*设置图标样式,大小与前景色*/
+.index-header > .content > .main-nav .nav-detail .pic > span {
+    font-size: 40px;
+    color: red;
+}
+/*设置图标右边上下排列的描述文本样式*/
+.index-header > .content > .main-nav .nav-detail .pic > div {
+    padding-left: 5px;
+    /*转为flex,且为垂直排列*/
+    display: flex;
+    flex-direction: column;
+    /*分散对齐*/
+    justify-content: space-around;
+}
+
+/*设置主导航的链接样式*/
+.index-header > .content > .main-nav .nav-detail .links {
+    padding-left: 10px;
+
+    /*链接非常规范,且默认为二行显示,非常适合网格快速实现*/
+    display: grid;
+    /*minmax(最小值,最大值)*/
+    grid-template-columns: repeat(4, minmax(30px, auto));
+    /*设置表格单元之间的列间隙*/
+    grid-column-gap: 10px;
+}
+
+/********** 3. 轮播图 **********/
+
+.index-header > .content > .slider {
+    /*用网格布局快速实现*/
+    display: grid;
+    grid-template-columns: 900px 295px;
+    /*列间距*/
+    grid-column-gap: 5px;
+}
+
+.index-header > .content > .slider  img:last-of-type:hover {
+    box-shadow: 0 0 8px #888888;
+}
+
+
+
+

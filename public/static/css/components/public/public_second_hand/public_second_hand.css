@@ -1,0 +1,145 @@
+/*样式重置*/
+@import "../public_reset.css";
+/*通用大标题*/
+@import "../public_headline/public_headline.css";
+
+/*二手专区*/
+.public-second-hand {
+    /*基本样式*/
+    width: 1200px;
+    padding: 10px;
+    /*水平居中*/
+    margin: auto;
+    /*盒子大小不受padding与border影响*/
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.public-second-hand:hover {
+    box-shadow: 0 0 8px #888;
+}
+
+/*标题1*/
+.public-second-hand > .title1 {
+    height: 50px;
+    /*确保高度始终为51*/
+    box-sizing: border-box;
+    border-bottom: 1px solid #cccccc;
+}
+.public-second-hand > .title1 > a {
+    font-size: 23px;
+    /*链接与描述文本之间应该有间隙*/
+    margin-right: 20px;
+}
+.public-second-hand > .title1 > span {
+    color: red;
+}
+
+/*标题2*/
+.public-second-hand > .title2 {
+    height: 55px;
+}
+.public-second-hand > .title2 > span {
+    font-size: 23px;
+    color: red;
+}
+.public-second-hand > .title2 > span ~ a {
+    /*每个链接标签之间应该有间隙*/
+    padding-left: 20px;
+}
+
+/*商品展示区*/
+.public-second-hand > .goods {
+    height: 440px;
+    display: flex;
+}
+/*左侧商品列表*/
+.public-second-hand > .goods > .goods-list {
+    padding: 10px;
+    flex-basis: 800px;
+    /*转为弹性盒子*/
+    display: flex;
+    /*水平换行*/
+    flex-flow: row wrap;
+    /*整体二端对齐*/
+    justify-content: space-between;
+
+
+}
+/*商品图片与描述文本的整体样式*/
+.public-second-hand > .goods > .goods-list > .intro {
+    width: 178px;
+    height: 200px;
+    /*转为弹性盒子*/
+    display: flex;
+    /*垂直为主轴, 不换行*/
+    flex-flow: column nowrap;
+    /*垂直方向两端对齐*/
+    justify-content: space-between;
+}
+
+/*商品图片*/
+.public-second-hand > .goods > .goods-list > .intro img {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+/*价格与分类标签*/
+.public-second-hand > .goods > .goods-list > .intro span:first-of-type {
+    color: red;
+}
+
+/*这行要先加上, 才能让标签右对齐*/
+.public-second-hand > .goods > .goods-list > .intro > div {
+    display: flex;
+}
+.public-second-hand > .goods > .goods-list > .intro span:last-of-type {
+    color: white;
+    background-color: #55ce9f;
+    padding: 0 5px;
+    /*标签居中显示, 切记要把父元素div改为flex,显示该属性无效*/
+    margin-left: auto;
+}
+
+
+
+/*右侧快速入口区*/
+.public-second-hand > .goods > .quick-entry {
+    flex-basis: 400px;
+    padding: 10px;
+
+    /*内部再创建一个弹性盒子以简化布局*/
+    display: flex;
+    /*整体(实际上是前四个)水平换行排列*/
+    flex-flow: row wrap;
+    /*两端对齐*/
+    justify-content: space-between;
+}
+/*设置前四个图片的尺寸*/
+.public-second-hand > .goods > .quick-entry img {
+    width: 190px;
+    height: 130px;
+}
+/*设置最后二个图片样式*/
+.public-second-hand > .goods > .quick-entry > div {
+    width: 400px;
+    /*再次转为弹性盒子*/
+    display: flex;
+    flex-direction: column;
+}
+/*设置最后二个图片的尺寸*/
+.public-second-hand > .goods > .quick-entry > div img {
+    width: 393px;
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+

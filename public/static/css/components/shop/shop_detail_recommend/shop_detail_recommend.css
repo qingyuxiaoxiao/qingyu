@@ -1,0 +1,62 @@
+@import "../../public/public_reset.css";
+/*商城详情页左下推荐商品列表样式*/
+.shop-detail-recommend {
+    width: 180px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+/*标题样式*/
+.shop-detail-recommend > h3 {
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+/*标题悬停效果*/
+.shop-detail-recommend > h3:hover {
+    color: lightcoral;
+    cursor: default;
+}
+/*图文列表中的所有图片样式*/
+.shop-detail-recommend img {
+    width: 100%;
+    /*转为块元素以消除图片底部的默认空白*/
+    display: block;
+}
+/*图文列表区块的样式*/
+.shop-detail-recommend > div {
+    /*转为flex,布局更方便*/
+    display: flex;
+    /*垂直排列*/
+    flex-direction: column;
+    /*每一个区块中应该有一定的间隙*/
+    margin-bottom: 10px;
+}
+/*图文列表区块的鼠标悬停样式*/
+.shop-detail-recommend > div:hover {
+    box-shadow: 0 0 5px #888888;
+}
+/*选择图片下面的链接,并自定义链接文本样式*/
+.shop-detail-recommend > div > a:last-of-type {
+    color: #aaaaaa;
+    background-color: black;
+    padding: 5px;
+}
+/*鼠标悬停到链接上的文本改变前景色*/
+.shop-detail-recommend > div > a:last-of-type:hover {
+    color: white;
+}
+
+/*热销价格*/
+.shop-detail-recommend > div > .hot {
+    padding: 5px;
+}
+/*选择偶数span,即热销与价格的值,描红*/
+.shop-detail-recommend > div > .hot > span:nth-of-type(even) {
+    color: red;
+}
+
+/*销量与价格之间添加间隙*/
+.shop-detail-recommend > div > .hot > span:nth-of-type(3) {
+    margin-left: 20px;
+}

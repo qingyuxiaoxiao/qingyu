@@ -1,0 +1,64 @@
+@import "../../../components/public/public_reset.css";
+
+.index-news {
+    width: 1200px;
+    padding: 30px 15px;
+    /*加了padding,记得一定要加上box-sizing,否则盒子会变形*/
+    box-sizing: border-box;
+
+    margin: auto;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-column-gap: 20px;
+    /*装饰圆角*/
+    border-radius: 5px;
+}
+
+.index-news:hover {
+    /*外发光阴影*/
+    box-shadow: 0 0 8px #888888;
+}
+
+/*中间与右边列表区*/
+.index-news > .imgs {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(2, 180px);
+}
+/*内部图片自知识网格大小*/
+.index-news > .imgs img {
+    width: 100%;
+}
+/*第一张图片水平跨二列放置*/
+.index-news > .imgs > a {
+    grid-area: 1 / span 2;
+}
+
+.index-news > .imgs > div {
+    display: grid;
+    grid-template-columns: 190px;
+    grid-template-rows: 140px 40px;
+}
+
+
+
+.index-news >  .list > a{
+    font-size: 23px;
+    color: red;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.index-news >  .list li {
+    line-height: 32px;
+}
+.index-news >  .list li > span {
+    color: #b0b0b0;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.index-news >  .list li:nth-of-type(5) {
+    margin-top: 30px;
+}

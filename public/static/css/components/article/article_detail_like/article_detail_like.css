@@ -1,0 +1,34 @@
+@import "../../public/public_reset.css";
+
+.article-detail-like {
+    height: 50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    color: white;
+
+}
+
+.article-detail-like span {
+    padding: 5px 22px;
+    align-self: center;
+}
+
+/*赞*/
+.article-detail-like span:first-of-type {
+    background-color: #f64c59;
+    margin-right: 20px;
+}
+
+
+/*踩*/
+.article-detail-like span:last-of-type {
+    background-color: #009688;
+}
+
+/*设置鼠标悬停效果*/
+.article-detail-like span:first-of-type:hover,
+.article-detail-like span:last-of-type:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px #888;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--    阿里字体图标-->
+    <link rel="stylesheet" href="../../../static/font/iconfont.css">
+    <link rel="stylesheet" href="image_public_header.css">
+    <title>图片系统公共头部</title>
+</head>
+<body>
+<div class="image-public-header">
+    <div class="content">
+        <h2>PHP中文网</h2>
+        <span>图片站</span>
+        <div class="search">
+            <input type="search" id="search" placeholder="搜索关键字">
+            <label class="iconfont icon-sousuo2" for="search"></label>
+        </div>
+    </div>
+</div>
+
+<!--
+说明:
+为什么用label包装放大镜,而不用button?
+1. 点击label,如果没有输入内容,会自动将焦点设置到输入框中
+2. 如果输了搜索关键字, label将变身为提交按钮
+3. 以上label的行为,完全可以用JavaScript脚本进行控制
+-->
+</body>
+</html>

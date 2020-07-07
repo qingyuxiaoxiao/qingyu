@@ -1,0 +1,32 @@
+@import '../../public/public_reset.css';
+
+/*推荐阅读*/
+.article-public-recommend {
+    background-color: #fff;
+    padding: 15px;
+    border-top: 1px solid #cccccc;
+}
+
+/*标题*/
+.article-public-recommend h3 {
+    padding: 10px 0;
+}
+
+/*图片*/
+.article-public-recommend img {
+    width: 200px;
+    height: 132px;
+    border-radius: 10px;
+}
+
+/*图文列表: 布局规范,适合网格布局*/
+.article-public-recommend > .img-list {
+
+    /*创建网格容器*/
+    display: grid;
+    /*设置网格模板: 2行4列*/
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(2, 175px);
+    /*行与列之间的间隙*/
+    grid-gap: 15px;
+}

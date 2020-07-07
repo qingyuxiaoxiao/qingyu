@@ -1,0 +1,50 @@
+@import '../../public/public_reset.css';
+
+.image-public-header {
+    padding: 15px 0;
+    background-color: #fff;
+}
+
+/*头部容器*/
+.image-public-header > .content {
+    /*宽度必须固定,以配合后面后面内容*/
+    width: 1200px;
+    /*水平居中*/
+    margin: auto;
+
+    /*转为弹性容器*/
+    display: flex;
+    /*二端对齐*/
+    justify-content: space-between;
+}
+/*大标题*/
+.image-public-header > .content h2 {
+    color: red;
+}
+/*图片站三字与大标题对齐*/
+.image-public-header > .content span {
+    align-self: center;
+}
+/*搜索框组件(文本框+放大镜)的样式*/
+.image-public-header > .content > .search {
+    margin-left: auto;
+    /*交叉轴居中*/
+    align-self: center;
+}
+
+/*搜索框*/
+.image-public-header > .content > .search > input {
+    width: 300px;
+    height: 30px;
+    /*框内文本不要太靠左*/
+    padding: 6px;
+    border-radius: 10px;
+}
+
+/*设置阿里图标: 放大镜的显示效果*/
+.image-public-header > .content > .search > label {
+    font-size: 22px;
+    position: relative;
+    top:3px;
+    left: -33px;
+}

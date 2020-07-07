@@ -1,0 +1,87 @@
+@import "../../public/public_reset.css";
+
+/*商城公共头部: logo+search+button*/
+/*仅水平方向布局,使用flex更方便*/
+
+.shop-public-header {
+    padding: 15px 0;
+    background-color: #fff;
+}
+
+/*头部容器*/
+.shop-public-header > .content {
+    /*宽度必须固定,以配合后面后面内容*/
+    width: 1200px;
+    /*水平居中*/
+    margin: auto;
+
+    /*转为弹性容器*/
+    display: flex;
+    /*分散对齐: 每个元素二边空间相等*/
+    justify-content: space-around;
+}
+
+/*左侧LOGO*/
+.shop-public-header > .content > .logo {
+    width: 160px;
+    height: 76px;
+}
+
+/*中部搜索框*/
+.shop-public-header > .content > .search {
+    outline: none;
+    /*先转为flex,水平排列,支持宽高*/
+    display: flex;
+    align-self: center;
+}
+.shop-public-header > .content > .search > input {
+    width: 420px;
+    height: 38px;
+    outline: none;
+    padding-left: 10px;
+    border: 2px solid #178cee;
+}
+
+.shop-public-header > .content > .search:hover
+{
+    box-shadow: 0 0 5px #888888;
+}
+
+/*必须先将.search 转flex,才可以设置label尺寸*/
+.shop-public-header > .content > .search > label {
+    color: white;
+    font-size: 16px;
+    background-color: #178cee;
+    width: 68px;
+    height: 38px;
+    /*标签内文本水平垂直居中显示*/
+    text-align: center;
+    line-height: 38px;
+}
+/*搜索标签添加手形手势*/
+.shop-public-header > .content > .search > label:hover {
+    cursor: pointer;
+}
+
+/*右侧按钮*/
+.shop-public-header > .content > button {
+    color: white;
+    font-size: 16px;
+    width: 128px;
+    height: 38px;
+    padding: 0 18px;
+    background-color: #178cee;
+
+    line-height: 38px;
+    text-align: center;
+    border: none;
+    outline: none;
+    /*垂直居中*/
+    align-self: center;
+}
+
+.shop-public-header > .content > button:hover {
+    background-color: #f64c59;
+    box-shadow: 0 0 5px #888888;
+    cursor: pointer;
+}

@@ -1,0 +1,43 @@
+@import url(../../public/public_reset.css);
+/*商城详情页右下详情选项卡*/
+.shop-detail-tab {
+    width: 1000px;
+    background-color: #fff;
+}
+
+.shop-detail-tab > .tab {
+    height: 45px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.shop-detail-tab > .tab > span {
+    flex: auto;
+    text-align: center;
+    line-height: 45px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.shop-detail-tab > .tab > span:hover {
+    cursor: default;
+    color: #178cee;
+}
+/*最后一个选项卡没有左边框*/
+.shop-detail-tab > .tab > span:last-of-type {
+    border-right: none;
+}
+/*第一个选项卡默认是激活状态: 有上边框, 没有下边框*/
+.shop-detail-tab > .tab > span.active {
+    border-bottom: none;
+    border-top: 3px solid #178cee;
+}
+
+
+.shop-detail-tab > .content {
+    padding: 20px;
+    box-sizing: border-box;
+    line-height: 1.5rem;
+}
+.shop-detail-tab > .content p {
+    text-indent: 2em;
+}

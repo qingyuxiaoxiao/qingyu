@@ -1,0 +1,155 @@
+@import "../../public/public_reset.css";
+
+/*商城首页导航与轮播图*/
+.shop-index-nav {
+    background-color: #fff;
+    padding: 30px 0;
+}
+/*整体内容是居中显示的,与主体等宽:1200px*/
+.shop-index-nav > .content {
+    width: 1200px;
+    /*水平居中*/
+    margin: auto;
+    /*整体转flex,便于水平排列, 消灭float*/
+    display: flex;
+}
+
+/***************** 1. 设置左侧导航区样式 *****************/
+
+/*左侧导航的宽度*/
+.shop-index-nav > .content > .nav {
+    width: 300px;
+}
+
+/*左侧导航的顶部样式: 文本+字体图标,也采用flex布局*/
+.shop-index-nav > .content > .nav > .nav-top {
+    height: 50px;
+    padding: 10px;
+    /*因为设置了padding,所以要重置宽高,防止盒子撑开*/
+    box-sizing: border-box;
+    background-color: #178cee;
+
+    /*文本与图标设置,使用flex实现*/
+    display: flex;
+    /*两端对齐*/
+    justify-content: space-between;
+}
+/*主导航中的大标题: 全部商品分类*/
+.shop-index-nav > .content > .nav > .nav-top > :first-child {
+    font-size: 18px;
+    font-weight: bolder;
+    color: white;
+}
+
+/*主导航阿里字体图标*/
+.shop-index-nav > .content > .nav > .nav-top > :last-child {
+    color: white;
+    font-size: 23px;
+}
+
+/*主导航下面的分类区*/
+.shop-index-nav > .content > .nav > .nav-main {
+    /*宽度宜设置在分类详情的父级中*/
+    width: 300px;
+    /*背景全黑*/
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-index-nav > .content > .nav > .nav-main > .nav-detail {
+    /*padding: 10px;*/
+    /*因为.nav-detail父级是flex容器,不会因padding撑开盒子,所以不必重置盒大小:box-sizing*/
+    /*每一个分类区只需要设置高度,父级依赖子级撑开即可*/
+    border-bottom: 1px solid #aaaaaa;
+    box-sizing: border-box;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+/*第一个span:分类标题前景色: 白*/
+.shop-index-nav > .content > .nav > .nav-main > .nav-detail > span:first-of-type {
+    /*padding简写规则: 上10px,下0, 左右20px*/
+    padding: 10px 20px 0;
+    color: white;
+}
+
+/*第二个span,即最后一个, 占据剩余全部空间,并转为flex,便于内部元素布局*/
+.shop-index-nav > .content > .nav > .nav-main > .nav-detail > span:last-of-type  {
+    /*具体分类所在元素占据剩余全部空间*/
+    flex: auto;
+    /*再添加padding:10px,与上面的大标题对齐*/
+    padding: 10px;
+
+    /*转为flex容器,对内部所有链接进行统一设置*/
+    display: flex;
+    /*水平排列, 允许换行*/
+    flex-flow: row wrap;
+    /*整体水平分散对齐, 元素二边空间相等*/
+    justify-content: space-around;
+    /*整体垂直也分散对齐, 元素二边空间相等*/
+    align-content: space-around;
+}
+.shop-index-nav > .content > .nav > .nav-main > .nav-detail > span:last-of-type a {
+    /*设置固定宽度很重要, 便于统一调整对齐方式*/
+    width: 80px;
+    /*分类链接前景色*/
+    color: #aaaaaa;
+}
+
+.shop-index-nav > .content > .nav > .nav-main > .nav-detail > span:last-of-type a:hover {
+    color: white;
+}
+
+/***************** 2. 设置右侧轮播区样式 *****************/
+
+/*左侧导航的宽度*/
+.shop-index-nav > .content > .slider {
+    /*占据剩余全部空间: 即900px*/
+    flex: auto;
+    /*height: 350px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+/*轮播图上方导航基本样式*/
+.shop-index-nav > .content > .slider > .slider-top {
+    /*与左侧主导航高度相同:50px*/
+    height: 50px;
+
+    /*转为flex: 默认为水平不换行*/
+    display: flex;
+    /*垂直/交叉轴上居中对齐*/
+    align-items: center;
+}
+
+/*右侧顶部导航中的链接样式*/
+.shop-index-nav > .content > .slider > .slider-top > a {
+    /*添加padding, 让每个链接之间有一定的间隙, 这里用margin效果是一样的,想一下为什么?*/
+    padding: 0 10px;
+    font-size: 16px;
+}
+.shop-index-nav > .content > .slider > .slider-top > a:hover {
+    color: #178cee;
+}
+.shop-index-nav > .content > .slider > .slider-top > a:nth-of-type(3) > img {
+    width: 22px;
+    position: relative;
+    top: -8px;
+    left: 3px;
+}
+
+/*父容器为flex主轴垂直, 可以将剩余空间全部分配给轮播图显示区域*/
+.shop-index-nav > .content > .slider > .slider-main {
+    /*等价于: flex: 1;  或  flex: 1 0 auto*/
+    flex:auto;
+}
+.shop-index-nav > .content > .slider > .slider-main  img {
+    height: 300px;
+    width: 900px;
+}
+
+
+
+
+

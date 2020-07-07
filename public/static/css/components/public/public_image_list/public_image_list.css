@@ -1,0 +1,65 @@
+/*样式重置*/
+@import "../../public/public_reset.css";
+/*大标题*/
+@import "../public_headline/public_headline.css";
+
+.public-image-list {
+    width: 1200px;
+    /*水平居中*/
+    margin: auto;
+    /*三列图文列表样式相同,适合网格快速生成*/
+    display: grid;
+    grid-template-columns: repeat(3, 390px);
+    /*网格单元的列间隙*/
+    grid-column-gap: 20px;
+    justify-content: center;
+}
+.public-image-list img {
+    width: 163px;
+    height: 123px;
+}
+
+/*图文列表的整体设置, 文档中会重复应该该样式三遍*/
+.public-image-list > .list {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    /*保持宽度不变化*/
+    box-sizing: border-box;
+}
+
+/*鼠标划过每个图片列表区块时,添加外发光阴景效果*/
+.public-image-list > .list:hover {
+    box-shadow: 0 0 8px #888;
+}
+
+    /*标题*/
+.public-image-list > .list > .title {
+    height: 50px;
+    border-bottom: 1px solid #cccccc;
+}
+/*标题中的链接样式*/
+.public-image-list > .list > .title > a {
+    font-size: 23px;
+    margin-right: 15px;
+}
+/*标题后的描述文本是红色*/
+.public-image-list > .list > .title > span {
+    color: red;
+}
+
+/*图片列表, 很规范, 适合网格布局*/
+.public-image-list > .list > .img-list {
+    /*使用网格布局*/
+    display: grid;
+
+    /*二列二行结构*/
+    grid-template-columns: repeat(2, 163px);
+    grid-template-rows: repeat(2, 170px);
+    /*行与列的间隙*/
+    grid-gap: 20px 20px;
+    /*水平方向二端对齐*/
+    justify-content: space-between;
+    /*添加上外边距与标题保持一定的间隙*/
+    margin-top: 20px;
+}

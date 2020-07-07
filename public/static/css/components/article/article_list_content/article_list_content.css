@@ -1,0 +1,88 @@
+@import "../../public/public_reset.css";
+
+/*文章列表页图文列表*/
+.article-list-content {
+    min-width: 870px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/*顶部导航*/
+.article-list-content > .top-nav {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.article-list-content > .top-nav > a {
+    font-size: 22px;
+    color: gray;
+    margin-left: 20px;
+}
+.article-list-content > .top-nav > a:hover {
+    color: lightcoral;
+}
+/*设置当前频道为高亮*/
+.article-list-content > .top-nav > a#active {
+    color: lightcoral;
+}
+
+/*图文列表*/
+.article-list-content > .img-list {
+    margin-top: 20px;
+    /*转flex容器,图片在左,简介在右,水平排列*/
+    display: flex;
+}
+
+/*列表项简介*/
+.article-list-content > .img-list > .intro {
+    margin-left: 20px;
+    padding: 6px 0;
+
+    /*整体转flex,这是有必要的,便于元素整体对齐*/
+    display: flex;
+    /*垂直为主轴*/
+    flex-direction: column;
+    /*主轴上二端对齐*/
+    justify-content: space-between;
+}
+/*标题为flex容器,主轴垂直*/
+.article-list-content > .img-list > .intro > .title {
+    display: flex;
+    flex-direction: column;
+}
+/*主标题样式*/
+.article-list-content > .img-list > .intro > .title > a {
+    font-size: 21px;
+    font-weight: bolder;
+}
+.article-list-content > .img-list > .intro > .title > a:hover {
+    color: #178cee;
+}
+/*副标题样式*/
+.article-list-content > .img-list > .intro > .title > span {
+    margin-top: 5px;
+    font-size: 16px;
+    color: gray;
+}
+
+/*底部发布时间与阅读数量*/
+.article-list-content > .img-list > .intro > .time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-list-content > .img-list > .intro > .time i {
+    font-size: 16px;
+    color: lightcoral;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+

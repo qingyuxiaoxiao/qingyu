@@ -1,0 +1,16 @@
+@import "../../public/public_reset.css";
+
+/*合作网站*/
+.index-frend-links {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(13, auto);
+    grid-template-rows: repeat(2, 20px);
+    justify-content: center;
+    grid-gap: 20px;
+    background-color: #fff;
+}
+
+.index-frend-links > a:hover {
+    color: skyblue;
+}

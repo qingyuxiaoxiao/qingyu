@@ -1,0 +1,39 @@
+@import "../../public/public_reset.css";
+
+.image-detail-slider {
+    width: 1200px;
+    height: 480px;
+    background-color: #fff;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    /*上下30px,左右自动, 水平居中*/
+    margin: 30px auto;
+
+    /*flex: 垂直排列*/
+    display: flex;
+    flex-direction: column;
+    /*主轴二端对齐*/
+    justify-content: space-between;
+}
+.image-detail-slider > h2 {
+    font-weight: normal;
+    font-size: 24px;
+}
+.image-detail-slider > .slider img {
+    width: 1160px;
+    height: 320px;
+}
+
+.image-detail-slider > .thumb {
+    display: flex;
+}
+.image-detail-slider > .thumb a {
+    margin-right: 8px;
+}
+.image-detail-slider > .thumb img {
+    width: 165px;
+    height: 62px;
+}
+
